@@ -12,8 +12,7 @@
 
 - HomePage
 
-![Screenshot 2024-06-06 100410](https://github.com/niravtank1199/Social-Media/assets/132243208/c3fe71ff-830a-48dc-b5c8-1dc942ce5724)
-
+![image](https://github.com/niravtank1199/Social-Media/assets/132243208/675d410c-a205-4f63-af2e-b4e5dbb9eef1)
 -  Personal Info
 
 ![Screenshot 2024-06-06 100509](https://github.com/niravtank1199/Social-Media/assets/132243208/53410426-acaa-48f7-aaa5-6a23b2da44aa)
