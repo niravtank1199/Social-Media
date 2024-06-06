@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>Social Media</title>
+    <link rel="icon" href="images/fav.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="~/Css/main.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/color.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="~/JavaScript/UserProfile.js"></script>
+</head>
+<body>
+    <div class="theme-layout">
+        <div class="responsive-header">
+            <div class="mh-head first Sticky">
+                <span class="mh-btns-left">
+                    <a class="" href="#menu"><i class="fa fa-align-justify"></i></a>
+                </span>
+                <span class="mh-text">
+                    <a href="newsfeed.html" title=""><img src="~/images/logo2.png" alt=""></a>
+                </span>
+                <span class="mh-btns-right">
+                    <a class="fa fa-sliders" href="#shoppingbag"></a>
+                </span>
+            </div>
+            <div class="mh-head second">
+                <form class="mh-form">
+                    <input placeholder="search" />
+                    <a href="#/" class="fa fa-search"></a>
+                </form>
+            </div>
+        </div><!-- responsive header -->
+
+        <div class="topbar stick">
+            <div class="logo">
+                <a title="" href="/SMF/HomePage"><i class="fa-solid fa-house" style="font-size: large;"></i></a>
+            </div>
+            <div class="top-area">
+                <div class="user-img">
+                    <i class="fa-solid fa-right-from-bracket" style="font-size: large;"></i>
+                    <div class="user-setting">
+                        <a href="#" title="" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i>Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- topbar -->
+
+        <section>
+            <div class="feature-photo">
+                <figure>
+                    @*<img src="~/images/resources/timeline-1.jpg" alt="">*@
+                    <div id="yourContainer">
+                        <img src="~/images/pexels-pixabay-462162.jpg" />
+                    </div>
+                </figure>
+                <div class="add-btn">
+                    <span id="friendcount"></span>
+                </div>
+                <div class="container-fluid">
+                    <div class="row merged">
+                        <div class="col-lg-2 col-sm-3">
+                            <div class="user-avatar">
+                                <figure>
+                                    <img src="" id="ProfilePhoto" alt="">
+                                    
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-sm-9">
+                            <div class="timeline-info">
+                                <ul>
+                                    <li class="admin-name">
+                                        <h5 id="UserName"></h5>
+                                        <span></span>
+                                    </li>
+                                    <li>
+                                        <a class="active" id="timeline-link" title="" data-ripple=""> Personal Info</a> 
+                                        <a class="" id="editinfo-link" title="" data-ripple="">Photos</a>  
+                                        <a class="" id="UserPost-link" title="" data-ripple="">Friend List</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- top area -->
+
+        <section>
+            <div class="gap gray-bg">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row" id="page-contents">
+                                <div class="col-lg-3">
+
+                                </div><!-- sidebar -->
+                                <div class="col-lg-6">
+                                    <div class="central-meta">
+                                        <!-- About Div -->
+                                        <div id="timeline-div">
+                                            <div class="about">
+                                                <div class="personal">
+                                                    <h5 class="f-title"><i class="fa-solid fa-user"></i> Personal Info</h5>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                    </p>
+                                                </div>
+                                                <div class="d-flex flex-row mt-2">
+                                                    <ul class="nav nav-tabs nav-tabs--vertical nav-tabs--left">
+                                                        <li class="nav-item">
+                                                            <a href="#basic" class="nav-link active" data-toggle="tab">Basic info</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a href="#interest" class="nav-link" data-toggle="tab">interests</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a href="#Bio" class="nav-link" data-toggle="tab">Bio</a>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane fade show active" id="basic">
+                                                            <ul class="basics">
+                                                                <li id="UserName"><i class="fa-regular fa-user"></i></li>
+                                                                <li id="City"><i class="fa-solid fa-city"></i></li>
+                                                                <li id="PhoneNumber"><i class="fa-solid fa-phone"></i></li>
+                                                                <li id="Email"><i class="fa-solid fa-envelope"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="interest" role="tabpanel">
+                                                            <ul class="basics" id="interestdata">
+                                                            </ul>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="Bio" role="tabpanel">
+                                                            <ul class="basics" id="BioInfo">
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- edit info -->
+                                        <div id="editinfo-div" style="display: none;">
+                                            <div class="editing-info" id="UserProfileDiv">
+                                                <h5 class="f-title"><i class="fa-solid fa-images"></i>Photos</h5>
+                                                <ul class="photos">
+                                                    @*<li>                                                       
+                                                        <a class="strip" href="images/resources/photo-22.jpg" title="" data-strip-group="mygroup" data-strip-group-options="loop: false">
+                                                            <img src="" id="UserPost" alt="" height="212" width="212">
+                                                        </a>
+                                                    </li>*@                                                    
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!--UserFriend-->
+                                        <div id="UserPost-div" style="display: none;">
+                                            <div class="UserPost-info">
+                                                <div class="frnds">
+                                                    <ul class="nav nav-tabs">
+                                                        <li class="f-title"><i class="fa-solid fa-user-group"></i>My Friends</li>
+                                                    </ul>
+                                                    <!-- Tab panes -->
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane active fade show" id="frends">
+                                                            <ul class="nearby-contct"></ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div><!-- centerl meta -->
+                                </div>
+                                <div class="col-lg-3"></div><!-- sidebar -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="bottombar">
+            <div class="container">
+                <div class="container">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/JavaScript/main.min.js"></script>
+    <script src="~/JavaScript/script.js"></script>
+    <script src="https://kit.fontawesome.com/740b3d7ee7.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>Winku Social Network Toolkit</title>
+    <link rel="icon" href="~/images/fav.png" type="image/png" sizes="16x16">
+
+    <link rel="stylesheet" href="~/Css/main.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/color.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="~/JavaScript/Login.js"></script>
+</head>
+<body>
+    <!--<div class="se-pre-con"></div>-->
+    <div class="theme-layout">
+        <div class="container-fluid pdng0">
+            <div class="row merged">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="login-reg-bg">
+                        <div class="log-reg-area sign">
+                            <h2 class="log-title">Login</h2>
+
+                            <form method="post">
+                                <div class="form-group">
+                                    <input type="text" id="Email" required="required" />
+                                    <label class="control-label" for="input">Email</label><i class="mtrl-select"></i>
+
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="Password" required="required" />
+                                    <label class="control-label" for="input">Password</label><i class="mtrl-select"></i>
+                                </div>
+                                <span id="loginError"></span>
+                                <a href="#" title="" class="forgot-pwd" onclick="location.href='@Url.Action("ForgotPassword", "SMF")'">Forgot Password?</a>
+                                <div class="submit-btns">
+                                    <button class="mtr-btn signin" type="button" onclick="handleLogin()"><span>Login</span></button>
+                                    <button class="mtr-btn signup" type="button"><span>Register</span></button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="log-reg-area reg">
+                            <h2 class="log-title">Register</h2>
+
+                            <form method="post">
+
+                                <div class="form-group">
+                                    <input type="text" id="lastName" required="required" />
+                                    <label class="control-label" for="input">lastName</label><i class="mtrl-select"></i>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" id="FirstName" required="required" />
+                                    <label class="control-label" for="input">FirstName</label><i class="mtrl-select"></i>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" id="NewEmail" required="required" />
+                                    <label class="control-label" for="input">Email</label><i class="mtrl-select"></i>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="NewPassword" required="required" />
+                                    <label class="control-label" for="input">Password</label><i class="mtrl-select"></i>
+                                </div>
+                                <span id="NewloginError"></span><br />
+                                <a href="#" title="" class="already-have">Already have an account</a>
+                                <div class="submit-btns">
+                                    <button class="mtr-btn signup" type="button" onclick="handleSignup()"><span>Register</span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="~/JavaScript/main.min.js"></script>
+    <script src="~/JavaScript/script.js"></script>
+
+</body>
+</html>
+
+
+@*<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <title>Winku Social Network Toolkit</title>
+        <link rel="icon" href="~/images/fav.png" type="image/png" sizes="16x16">
+
+        <link rel="stylesheet" href="~/Css/main.min.css">
+        <link rel="stylesheet" href="~/css/style.css">
+        <link rel="stylesheet" href="~/css/color.css">
+        <link rel="stylesheet" href="~/css/responsive.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="~/JavaScript/Login.js"></script>
+    </head>
+    <body>
+        <div class="se-pre-con"></div>
+        <div class="theme-layout">
+            <div class="container-fluid pdng0">
+                <div class="row merged">
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="login-reg-bg">
+                            <div class="log-reg-area sign">
+                                <h2 class="log-title">Login</h2>
+
+                                <form method="post" id="LoginForm">
+                                    <div class="form-group">
+                                        <input type="text" id="Email" required="required" />
+                                        <label class="control-label" for="input">Email</label><i class="mtrl-select"></i>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" id="Password" required="required" />
+                                        <label class="control-label" for="input">Password</label><i class="mtrl-select"></i>
+                                    </div>
+                                    <span id="loginError"></span>
+                                    <a href="#" title="" class="forgot-pwd" onclick="location.href='@Url.Action("ForgotPassword", "SMF")'">Forgot Password?</a>
+                                    <div class="submit-btns">
+                                        <button class="mtr-btn signin" type="button" onclick="handleLogin()">Login</button>
+                                        <button class="mtr-btn signup" type="button"><span>Register</span></button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="log-reg-area reg">
+                                <h2 class="log-title">Register</h2>
+
+                                <form method="post">
+                                    <div class="form-group">
+                                        <input type="text" id="lastName" required="required" />
+                                        <label class="control-label" for="input">lastName</label><i class="mtrl-select"></i>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" id="FirstName" required="required" />
+                                        <label class="control-label" for="input">FirstName</label><i class="mtrl-select"></i>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" id="NewEmail" required="required" />
+                                        <label class="control-label" for="input">Email</label><i class="mtrl-select"></i>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" id="NewPassword" required="required" />
+                                        <label class="control-label" for="input">Password</label><i class="mtrl-select"></i>
+                                    </div>
+                                    <span id="NewloginError"></span><br />
+                                    <a href="#" title="" class="already-have">Already have an account</a>
+                                    <div class="submit-btns">
+                                        <button class="mtr-btn signup" type="button" onclick="handleSignup()"><span>Register</span></button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="log-reg-area forgot-pwd" style="display: none;">
+                                <h2 class="log-title">Forgot Password</h2>
+                                <form id="forgotPasswordForm">
+                                    <div class="form-group">
+                                        <input type="email" id="forgotPasswordEmail" required="required" />
+                                        <label class="control-label" for="input">Email</label><i class="mtrl-select"></i>
+                                    </div>
+                                    <span id="forgotPasswordError"></span>
+                                    <div class="submit-btns">
+                                        <button class="mtr-btn" type="button" onclick="handleForgotPassword()"><span>Send Reset Email</span></button>
+                                    </div>
+                                </form>
+                                <a href="#" onclick="showLoginForm()">Back to Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        <script src="~/JavaScript/main.min.js"></script>
+        <script src="~/JavaScript/script.js"></script>
+
+    </body>
+    </html>*@

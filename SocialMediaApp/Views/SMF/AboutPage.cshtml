@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>Social Media</title>
+    <link rel="icon" href="images/fav.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="~/Css/main.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/color.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="~/JavaScript/HomePage.js"></script>
+</head>
+<body>
+    <div class="theme-layout">
+
+        <div class="responsive-header">
+            <div class="mh-head first Sticky">
+                <span class="mh-btns-left">
+                    <a class="" href="#menu"><i class="fa fa-align-justify"></i></a>
+                </span>
+                <span class="mh-text">
+                    <a href="newsfeed.html" title=""><img src="~/images/logo2.png" alt=""></a>
+                </span>
+                <span class="mh-btns-right">
+                    <a class="fa fa-sliders" href="#shoppingbag"></a>
+                </span>
+            </div>
+            <div class="mh-head second">
+                <form class="mh-form">
+                    <input placeholder="search" />
+                    <a href="#/" class="fa fa-search"></a>
+                </form>
+            </div>
+        </div><!-- responsive header -->
+
+        <div class="topbar stick">
+            <div class="logo">
+                <a title="" href="/SMF/HomePage"><i class="fa-solid fa-house" style="font-size: large;"></i></a>
+            </div>
+            <div class="top-area">
+                <div class="user-img">
+                    <i class="fa-solid fa-right-from-bracket" style="font-size: large;"></i>
+                    <div class="user-setting">
+                        <a href="#" title="" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i>Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- topbar -->
+
+        <section>
+            <div class="feature-photo">
+                <figure>
+                    @*<img src="~/images/resources/timeline-1.jpg" alt="">*@
+                    <div id="yourContainer">
+                        <img src="~/images/pexels-pixabay-462162.jpg" />
+                    </div>
+                </figure>
+                <div class="add-btn">
+                    <span id="friendcount">asc</span>
+                </div>
+                <div class="container-fluid">
+                    <div class="row merged">
+                        <div class="col-lg-2 col-sm-3">
+                            <div class="user-avatar">
+                                <figure>
+                                    <img src="" id="ProfilePhoto" alt="">
+                                    <form class="edit-phto">
+                                        <i class="fa fa-camera-retro"></i>
+                                        <label class="fileContainer">
+                                            Edit Profile Photo
+                                            <input type="file" id="profilePhoto" name="profilePhoto" onchange="uploadProfilePhoto()" />
+                                        </label>
+
+                                    </form>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-sm-9">
+                            <div class="timeline-info">
+                                <ul>
+                                    <li class="admin-name">
+                                        <h5 id="UserName"></h5>
+                                        <span></span>
+                                    </li>
+                                    <li>
+                                        <a class="active" id="timeline-link" title="" data-ripple=""> Personal Info</a>
+                                        <a class="" id="editinfo-link" title="" data-ripple="">Edit Info</a>
+                                        <a class="" id="changepassword-link" title="" data-ripple="">Change Password</a>
+                                        <a class="" id="FriendList-link" title="" data-ripple="">Friend List</a>
+                                        <a class="" id="UserPost-link" title="" data-ripple="">Post</a>
+                                        <a class="" id="archieve-link" title="" data-ripple="">archievepost</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- top area -->
+
+        <section>
+            <div class="gap gray-bg">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row" id="page-contents">
+                                <div class="col-lg-3">
+
+                                </div><!-- sidebar -->
+                                <div class="col-lg-6">
+                                    <div class="central-meta">
+                                        <!-- About Div -->
+                                        <div id="timeline-div">
+                                            <div class="about">
+                                                <div class="personal">
+                                                    <h5 class="f-title"><i class="fa-solid fa-user"></i> Personal Info</h5>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                    </p>
+                                                </div>
+                                                <div class="d-flex flex-row mt-2">
+                                                    <ul class="nav nav-tabs nav-tabs--vertical nav-tabs--left">
+                                                        <li class="nav-item">
+                                                            <a href="#basic" class="nav-link active" data-toggle="tab">Basic info</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a href="#interest" class="nav-link" data-toggle="tab">interests</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a href="#Bio" class="nav-link" data-toggle="tab">Bio</a>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane fade show active" id="basic">
+                                                            <ul class="basics">
+                                                                <li id="UserName"><i class="fa-regular fa-user"></i></li>
+                                                                <li id="City"><i class="fa-solid fa-city"></i></li>
+                                                                <li id="PhoneNumber"><i class="fa-solid fa-phone"></i></li>
+                                                                <li id="Email"><i class="fa-solid fa-envelope"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="interest" role="tabpanel">
+                                                            <ul class="basics" id="interestdata">
+                                                            </ul>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="Bio" role="tabpanel">
+                                                            <ul class="basics" id="BioInfo">
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- edit info -->
+                                        <div id="editinfo-div" style="display: none;">
+                                            <div class="editing-info" id="UserProfileDiv">
+                                                <h5 class="f-title"><i class="fa-solid fa-user-pen"></i> User Profile</h5>
+                                                <form method="post" id="editinfo">
+                                                    <div class="form-group" hidden>
+                                                        <input type="text" id="TxtUserId" required="required" class="form-control" />
+                                                        <label class="control-label" for="LastName">User ID:</label>
+                                                    </div>
+                                                    <div class="form-group" hidden>
+                                                        <input type="text" id="TxtUserPassword" class="form-control" />
+                                                        <label class="control-label" for="LastName">User Password:</label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="TxtLastName">Last Name:</label>
+                                                        <input type="text" id="TxtLastName" required="required" class="form-control" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="TxtFirstName">First Name:</label>
+                                                        <input type="text" id="TxtFirstName" required="required" class="form-control" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="TxtCity">City</label>
+                                                        <input type="text" id="TxtCity" required="required" class="form-control" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="TxtEmail">Email</label>
+                                                        <input type="email" id="TxtEmail" required="required" class="form-control" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Gender</label><br>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male">
+                                                            <label class="form-check-label" for="inlineRadio1">Male</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female">
+                                                            <label class="form-check-label" for="inlineRadio2">Female</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Interests</label><br>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox" name="Interests" value="Dance">
+                                                            <label class="form-check-label" for="inlineCheckbox1">Dance</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox" name="Interests" value="singing">
+                                                            <label class="form-check-label" for="inlineCheckbox2">Singing</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox" name="Interests" value="Drawing">
+                                                            <label class="form-check-label" for="inlineCheckbox1">Drawing</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox" name="Interests" value="Painting">
+                                                            <label class="form-check-label" for="inlineCheckbox2">Painting</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox" name="Interests" value="Acting">
+                                                            <label class="form-check-label" for="inlineCheckbox1">Acting</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="TxtPhoneNumber">Phone Number</label>
+                                                        <input type="text" id="TxtPhoneNumber" required="required" class="form-control" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="TxtBio">Bio</label>
+                                                        <input type="text" id="TxtBio" class="form-control" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="BirthDate">Birth Date</label>
+                                                        <input type="date" id="BirthDate" required="required" class="form-control" />
+                                                    </div>
+                                                    <div class="submit-btns">
+                                                        <button type="button" class="btn btn-secondary"><span>Cancel</span></button>
+                                                        <button type="button" id="updateButton" class="btn btn-primary"><span>Update</span></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        @*<div id="editinfo-div" style="display: none;">
+            <div class="editing-info" id="UserProfileDiv">
+                <h5 class="f-title"><i class="fa-solid fa-user-pen"></i>User Profile</h5>
+                <form method="post">
+                    <div class="form-group" hidden>
+                        <input type="text" id="TxtUserId" required="required" />
+                        <label class="control-label" for="LastName">userid</label><i class="mtrl-select"></i>
+                    </div>
+                    <div class="form-group" hidden>
+                        <input type="text" id="TxtUserPassword" />
+                        <label class="control-label" for="LastName">userPassword</label><i class="mtrl-select"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="TxtLastName" required="required" />
+                        <label class="control-label" for="LastName">Last Name</label><i class="mtrl-select"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="TxtFirstName" required="required" />
+                        <label class="control-label" for="FirstName">First Name</label><i class="mtrl-select"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="TxtCity" required="required" />
+                        <label class="control-label" for="City">City</label><i class="mtrl-select"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="TxtEmail" required="required" />
+                        <label class="control-label" for="Email">Email</label><i class="mtrl-select"></i>
+                    </div>
+                    Gender
+                    <label class="form-group">Gender: </label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male">
+                        <label class="form-check-label" for="inlineRadio1">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female">
+                        <label class="form-check-label" for="inlineRadio2">Female</label>
+                    </div>
+                    <br />
+                    checkbox
+                    <label class="form-group">Interests: </label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Interests" value="Dance">
+                        <label class="form-check-label" for="inlineCheckbox1">Dance</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Interests" value="singing">
+                        <label class="form-check-label" for="inlineCheckbox2">singing</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Interests" value="Drawing">
+                        <label class="form-check-label" for="inlineCheckbox1">Drawing</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Interests" value="Painting">
+                        <label class="form-check-label" for="inlineCheckbox2">Painting</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Interests" value="Acting">
+                        <label class="form-check-label" for="inlineCheckbox1">Acting</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="TxtPhoneNumber" required="required" />
+                        <label class="control-label" for="PhoneNumber">Phone Number</label><i class="mtrl-select"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="TxtBio" />
+                        <label class="control-label" for="Bio">Bio</label><i class="mtrl-select"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="date" id="BirthDate" required="required" />
+                        <label class="control-label" for="BirthDate">Birth Date</label><i class="mtrl-select"></i>
+                    </div>
+                    <div class="submit-btns">
+                        <button type="button" class="mtr-btn"><span>Cancel</span></button>
+                        <button type="button" id="updateButton" class="mtr-btn"><span>Update</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>*@
+
+
+                                        <!--  change password -->
+                                        <div id="changepassword-div" style="display: none;">
+                                            <div class="editing-info">
+                                                <h5 class="f-title"><i class="fa-solid fa-unlock-keyhole"></i>Change Password</h5>
+
+                                                <form method="post" name="changepassword">
+                                                    <div class="form-group">
+                                                        <input type="password" id="currentPassword" required="required" />
+                                                        <label class="control-label" for="input">Current password</label><i class="mtrl-select"></i>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="password" id="NewPassword" required="required" />
+                                                        <label class="control-label" for="input">New password</label><i class="mtrl-select"></i>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="password" id="ReenterNewPassword" required="required" />
+                                                        <label class="control-label" for="input">Confirm password</label><i class="mtrl-select"></i>
+                                                    </div>
+
+                                                    <span id="result"></span>
+                                                    @*<a class="forgot-pwd underline" title="" href="#">Forgot Password?</a>*@
+                                                    <div class="submit-btns">
+                                                        <button type="button" class="mtr-btn"><span>Cancel</span></button>
+                                                        <button type="button" id="changePasswordButton" class="mtr-btn"><span>Change</span></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!--UserFriend-->
+                                        <div id="UserPost-div" style="display: none;">
+                                            <div class="UserPost-info">
+                                                <div class="frnds">
+                                                    <h5 class="f-title"><i class="fa-solid fa-user-group"></i>Friend List</h5>
+                                                    <!-- Tab panes -->
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane active fade show" id="frends">
+                                                            <ul class="nearby-contct"></ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Post-->
+                                        <div id="Post-div" style="display: none;">
+                                            <div class="Post-info" id="UserPostDiv">
+                                                <h5 class="f-title"><i class="fa-solid fa-images"></i>Photos</h5>
+                                                <ul class="photos">
+                                                    <!--load dynamic post-->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!--archievepost-->
+                                        <div id="archieve-div" style="display: none;">
+                                            <div class="archieve-info" id="archieveDiv">
+                                                <h5 class="f-title"><i class="fa-solid fa-box-archive"></i>archieve Photos</h5>
+                                                <ul class="photos">
+                                                    <!--load dynamic post-->
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div><!-- centerl meta -->
+                                </div>
+                                <div class="col-lg-3"></div><!-- sidebar -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="bottombar">
+            <div class="container">
+                <div class="container">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/JavaScript/main.min.js"></script>
+    <script src="~/JavaScript/script.js"></script>
+    <script src="https://kit.fontawesome.com/740b3d7ee7.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

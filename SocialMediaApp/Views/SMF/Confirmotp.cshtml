@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>Enter OTP</title>
+    <link rel="icon" href="~/images/fav.png" type="image/png" sizes="16x16">
+
+    <link rel="stylesheet" href="~/Css/main.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/color.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="~/JavaScript/Login.js"></script>
+</head>
+<body>
+    <div class="se-pre-con"></div>
+    <div class="theme-layout">
+        <div class="container-fluid pdng0">
+            <div class="row merged">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="login-reg-bg">
+
+                        <div class="log-reg-area forgot-pwd">
+                            <h2 class="log-title">Enter OTP</h2>
+                            <form id="otpForm">
+                                <div class="form-group">
+                                    <input type="text" id="otp" required="required" />
+                                    <label class="control-label" for="otp">OTP</label><i class="mtrl-select"></i>
+                                </div>
+                                <span id="otpError"></span>
+                                <div class="submit-btns">
+                                    <button class="mtr-btn" type="button" onclick="handleOtpSubmit()"><span>Verify OTP</span></button>
+                                    <button class="mtr-btn" type="button" onclick="location.href='@Url.Action("login", "SMF")'"><span>Login</span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="~/JavaScript/main.min.js"></script>
+    <script src="~/JavaScript/script.js"></script>
+    <script>
+        function handleOtpSubmit() {
+            var otp = document.getElementById("otp").value.trim();
+            var email = document.getElementById("forgotPasswordEmail").value.trim();
+
+            if (!otp) {
+                $("#otpError").text("Please enter the OTP.");
+                return;
+            }
+
+            const formData = {
+                email: email,
+                otp: otp
+            };
+
+            $.ajax({
+                url: '/api/WebApi/CheckToken',
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    console.log("OTP verified successfully", response);
+                    window.location.href = "/SMF/Login";
+                },
+                error: function (error) {
+                    console.error("OTP verification failed", error);
+                    $("#otpError").text("Invalid OTP.");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

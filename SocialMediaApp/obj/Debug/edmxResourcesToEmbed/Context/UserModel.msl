@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SocialMediaAppModelStoreContainer" CdmEntityContainer="SocialMediaAppEntities">
+    <EntitySetMapping Name="CommentLikes">
+      <EntityTypeMapping TypeName="SocialMediaAppModel.CommentLike">
+        <MappingFragment StoreEntitySet="CommentLikes">
+          <ScalarProperty Name="LikeId" ColumnName="LikeId" />
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LikeDate" ColumnName="LikeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="SocialMediaAppModel.Notification">
+        <MappingFragment StoreEntitySet="Notifications">
+          <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+          <ScalarProperty Name="NotificationSenderUserID" ColumnName="NotificationSenderUserID" />
+          <ScalarProperty Name="NotificationPostID" ColumnName="NotificationPostID" />
+          <ScalarProperty Name="NotificationText" ColumnName="NotificationText" />
+          <ScalarProperty Name="NotificationTimestamp" ColumnName="NotificationTimestamp" />
+          <ScalarProperty Name="NotificationStatus" ColumnName="NotificationStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PasswordChangeHistories">
+      <EntityTypeMapping TypeName="SocialMediaAppModel.PasswordChangeHistory">
+        <MappingFragment StoreEntitySet="PasswordChangeHistory">
+          <ScalarProperty Name="ChangeId" ColumnName="ChangeId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="NewPassword" ColumnName="NewPassword" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostComments">
+      <EntityTypeMapping TypeName="SocialMediaAppModel.PostComment">
+        <MappingFragment StoreEntitySet="PostComments">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+          <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+          <ScalarProperty Name="ParentCommentId" ColumnName="ParentCommentId" />
+          <ScalarProperty Name="LikeCount" ColumnName="LikeCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostLikes">
+      <EntityTypeMapping TypeName="SocialMediaAppModel.PostLike">
+        <MappingFragment StoreEntitySet="PostLikes">
+          <ScalarProperty Name="LikeId" ColumnName="LikeId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="LikeDate" ColumnName="LikeDate" />
+          <ScalarProperty Name="LikeType" ColumnName="LikeType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDatas">
+      <EntityTypeMapping TypeName="SocialMediaAppModel.UserData">
+        <MappingFragment StoreEntitySet="UserData">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="ProfilePhoto" ColumnName="ProfilePhoto" />
+          <ScalarProperty Name="Interests" ColumnName="Interests" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Bio" ColumnName="Bio" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserFriends">
+      <EntityTypeMapping TypeName="SocialMediaAppModel.UserFriend">
+        <MappingFragment StoreEntitySet="UserFriends">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FollowerId" ColumnName="FollowerId" />
+          <ScalarProperty Name="IsFriend" ColumnName="IsFriend" />
+          <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserMessages">
+      <EntityTypeMapping TypeName="SocialMediaAppModel.UserMessage">
+        <MappingFragment StoreEntitySet="UserMessage">
+          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+          <ScalarProperty Name="SenderId" ColumnName="SenderId" />
+          <ScalarProperty Name="ReceiverId" ColumnName="ReceiverId" />
+          <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+          <ScalarProperty Name="MessageTime" ColumnName="MessageTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPosts">
+      <EntityTypeMapping TypeName="SocialMediaAppModel.UserPost">
+        <MappingFragment StoreEntitySet="UserPosts">
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PostContent" ColumnName="PostContent" />
+          <ScalarProperty Name="PostPhoto" ColumnName="PostPhoto" />
+          <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+          <ScalarProperty Name="LikeCount" ColumnName="LikeCount" />
+          <ScalarProperty Name="CommentCount" ColumnName="CommentCount" />
+          <ScalarProperty Name="ShareCount" ColumnName="ShareCount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserStories">
+      <EntityTypeMapping TypeName="SocialMediaAppModel.UserStory">
+        <MappingFragment StoreEntitySet="UserStories">
+          <ScalarProperty Name="StoryId" ColumnName="StoryId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="StoryImage" ColumnName="StoryImage" />
+          <ScalarProperty Name="StoryVideo" ColumnName="StoryVideo" />
+          <ScalarProperty Name="StoryDate" ColumnName="StoryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserStoryLikes">
+      <EntityTypeMapping TypeName="SocialMediaAppModel.UserStoryLike">
+        <MappingFragment StoreEntitySet="UserStoryLikes">
+          <ScalarProperty Name="LikeId" ColumnName="LikeId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="StoryId" ColumnName="StoryId" />
+          <ScalarProperty Name="LikeDate" ColumnName="LikeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAllStory" FunctionName="SocialMediaAppModel.Store.GetAllStory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SocialMediaAppModel.GetAllStory_Result">
+          <ScalarProperty Name="StoryId" ColumnName="StoryId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="StoryImage" ColumnName="StoryImage" />
+          <ScalarProperty Name="StoryVideo" ColumnName="StoryVideo" />
+          <ScalarProperty Name="StoryDate" ColumnName="StoryDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetLastComment" FunctionName="SocialMediaAppModel.Store.GetLastComment">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SocialMediaAppModel.GetLastComment_Result">
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+          <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+          <ScalarProperty Name="ParentCommentId" ColumnName="ParentCommentId" />
+          <ScalarProperty Name="LikeCount" ColumnName="LikeCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetLastPost" FunctionName="SocialMediaAppModel.Store.GetLastPost">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SocialMediaAppModel.GetLastPost_Result">
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PostContent" ColumnName="PostContent" />
+          <ScalarProperty Name="PostPhoto" ColumnName="PostPhoto" />
+          <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+          <ScalarProperty Name="LikeCount" ColumnName="LikeCount" />
+          <ScalarProperty Name="ShareCount" ColumnName="ShareCount" />
+          <ScalarProperty Name="CommentCount" ColumnName="CommentCount" />
+          <ScalarProperty Name="ProfilePhoto" ColumnName="ProfilePhoto" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetNotifications" FunctionName="SocialMediaAppModel.Store.GetNotifications">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SocialMediaAppModel.GetNotifications_Result">
+          <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+          <ScalarProperty Name="NotificationSenderUserID" ColumnName="NotificationSenderUserID" />
+          <ScalarProperty Name="NotificationPostID" ColumnName="NotificationPostID" />
+          <ScalarProperty Name="NotificationText" ColumnName="NotificationText" />
+          <ScalarProperty Name="NotificationTimestamp" ColumnName="NotificationTimestamp" />
+          <ScalarProperty Name="NotificationStatus" ColumnName="NotificationStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserById" FunctionName="SocialMediaAppModel.Store.GetUserById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SocialMediaAppModel.GetUserById_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="ProfilePhoto" ColumnName="ProfilePhoto" />
+          <ScalarProperty Name="Interests" ColumnName="Interests" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Bio" ColumnName="Bio" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserNotifications" FunctionName="SocialMediaAppModel.Store.GetUserNotifications">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SocialMediaAppModel.GetUserNotifications_Result">
+          <ScalarProperty Name="ProfilePhoto" ColumnName="ProfilePhoto" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+          <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+          <ScalarProperty Name="NotificationSenderUserId" ColumnName="NotificationSenderUserId" />
+          <ScalarProperty Name="NotificationPostId" ColumnName="NotificationPostId" />
+          <ScalarProperty Name="NotificationText" ColumnName="NotificationText" />
+          <ScalarProperty Name="NotificationTimestamp" ColumnName="NotificationTimestamp" />
+          <ScalarProperty Name="NotificationStatus" ColumnName="NotificationStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllNotifications" FunctionName="SocialMediaAppModel.Store.GetAllNotifications">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SocialMediaAppModel.GetAllNotifications_Result">
+          <ScalarProperty Name="ProfilePhoto" ColumnName="ProfilePhoto" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+          <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+          <ScalarProperty Name="NotificationSenderUserID" ColumnName="NotificationSenderUserID" />
+          <ScalarProperty Name="NotificationPostID" ColumnName="NotificationPostID" />
+          <ScalarProperty Name="NotificationText" ColumnName="NotificationText" />
+          <ScalarProperty Name="NotificationTimestamp" ColumnName="NotificationTimestamp" />
+          <ScalarProperty Name="NotificationStatus" ColumnName="NotificationStatus" />
+          <ScalarProperty Name="PostPhoto" ColumnName="PostPhoto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="PasswordResetTokens">
+      <EntityTypeMapping TypeName="SocialMediaAppModel.PasswordResetToken">
+        <MappingFragment StoreEntitySet="PasswordResetTokens">
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StoryViews">
+      <EntityTypeMapping TypeName="SocialMediaAppModel.StoryView">
+        <MappingFragment StoreEntitySet="StoryView">
+          <ScalarProperty Name="StoryId" ColumnName="StoryId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AddUser" FunctionName="SocialMediaAppModel.Store.AddUser" />
+    <FunctionImportMapping FunctionImportName="GetUser" FunctionName="SocialMediaAppModel.Store.GetUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SocialMediaAppModel.GetUser_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="ProfilePhoto" ColumnName="ProfilePhoto" />
+          <ScalarProperty Name="Interests" ColumnName="Interests" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Bio" ColumnName="Bio" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Posts" ColumnName="Posts" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateUserInfo" FunctionName="SocialMediaAppModel.Store.UpdateUserInfo" />
+    <FunctionImportMapping FunctionImportName="UpdateStoryView" FunctionName="SocialMediaAppModel.Store.UpdateStoryView" />
+    <FunctionImportMapping FunctionImportName="CheckIfViewed" FunctionName="SocialMediaAppModel.Store.CheckIfViewed" />
+    <FunctionImportMapping FunctionImportName="DeletePostById" FunctionName="SocialMediaAppModel.Store.DeletePostById" />
+    <FunctionImportMapping FunctionImportName="addarchievepost" FunctionName="SocialMediaAppModel.Store.addarchievepost" />
+    <FunctionImportMapping FunctionImportName="removearchievepost" FunctionName="SocialMediaAppModel.Store.removearchievepost" />
+  </EntityContainerMapping>
+</Mapping>

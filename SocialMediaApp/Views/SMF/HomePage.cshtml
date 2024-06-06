@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>Social Media Network </title>
+    <link rel="icon" href="~/images/fav.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="~/Css/main.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/color.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.min.js"></script>
+    <script src="~/JavaScript/HomePage.js"></script>
+</head>
+<body>
+    <div class="theme-layout">
+        <div class="topbar stick">
+            <div class="logo">
+                <a title="" href="/SMF/HomePage"><i class="fa-solid fa-house" style="font-size: large;"></i></a>
+            </div>
+            <div class="top-area">
+                <div class="user-img">
+                    <i class="fa-solid fa-right-from-bracket" style="font-size: large;"></i>
+                    <div class="user-setting">
+                        <a href="#" title="" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i>Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- topbar -->
+        <section>
+            <div class="gap gray-bg">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row" id="page-contents">
+                                <div class="col-lg-3">
+                                    <aside class="sidebar static">
+                                        <div class="widget">
+                                            <h4 class="widget-title">Shortcuts</h4>
+                                            <ul class="naves">
+                                                <!-- Update the "HomePage" link -->                                                
+                                                <li>
+                                                    <i class="fa-solid fa-house"></i>
+                                                    <a href="#" id="HomePage" onclick="loadUserPosts()" >HomePage</a>
+                                                </li>
+                                                <li>
+                                                    <i class="fa-solid fa-user"></i>
+                                                    <a href="#" onclick="location.href='@Url.Action("AboutPage", "SMF")'">view Profile</a><br />
+                                                </li>
+                                                <li>
+                                                    <i class="fa-solid fa-bell"></i>
+                                                    <a href="#" id="message">Notification</a>
+                                                </li>
+                                               <!-- <li>
+                                                    <i class="fa-solid fa-user"></i>
+                                                    <a href="#" id="frends" onclick="LoadFriend()">Friend</a>
+                                                </li> -->
+                                            </ul>
+                                        </div><!-- Shortcuts -->
+                                    </aside>
+                                </div><!-- sidebar -->
+                                <div class="col-lg-6">
+                                    <div class="central-meta">
+                                        <h2>Upload Post</h2>
+                                        <div class="new-postbox box-post">
+
+                                            <div class="newpst-input post-container">
+                                                <!-- Add Post -->
+                                                <textarea id="postContent" class="textarea_post" rows="1" placeholder="write caption"></textarea>
+                                                <div class="attachments iconCon">
+                                                    <ul>
+                                                        <li>
+                                                            <i class="fa fa-camera"></i>
+                                                            <label class="fileContainer">
+                                                                <input type="file" id="userpost" name="userpost" accept=".png, .jpg, .jpeg" >
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <button id="submitButton" class="btn btn-primary" onclick="UploadPost()">Post</button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <span id="Posterror" style="justify-content: end;"></span>
+                                            </div>
+                                        </div>
+                                    </div><!-- add post new box -->
+                                    <!--story-->                              
+                                    <div class="storyContainer">
+                                        <div class="storyUpload">
+                                            <div class="uploadButton"  onclick="document.getElementById('storyUpload').click();">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </div>
+                                            <input type="file" id="storyUpload" accept="image/*" style="display: none;" />
+                                        </div>
+                                        <div class="storyList" id="storyList" style="cursor: pointer">
+                                            <!-- Stories will be dynamically added here -->
+                                        </div>
+                                    </div>
+
+                                    <!--story modal-->
+                                    <div id="storyModal" class="modal">
+                                        <div class="modal-content">
+                                            <span class="close">&times;</span>
+                                            <img class="modal-img" src="" alt="Story Image">
+                                            <button class="like-btn" hidden>
+                                                <i class="fas fa-heart"></i> Like
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="Notifition"></div>
+                                    <div class="friend"></div>
+                                    <div class="loadMore">
+                                        <!-- Add Dynamic Post-->
+                                    </div>
+
+                                </div><!-- centerl meta -->
+
+                                <div class="col-lg-3">
+                                    <aside class="sidebar static">
+                                        <div class="widget friend-list stick-widget">
+                                            <h4 class="widget-title">Friends</h4>
+                                            <div id="searchDir"></div>
+
+                                            <!--  loader -->
+                                            @*<div class="loader"></div>*@
+                                            <ul id="people-list" class="friendz-list">
+                                                <!--show all freiend-->
+                                            </ul>
+                                        </div><!-- friends list sidebar -->
+                                    </aside>
+                                </div><!-- sidebar -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="bottombar">
+        </div>
+    </div>
+
+    <script src="~/JavaScript/main.min.js"></script>
+    <script src="~/JavaScript/script.js"></script>
+    <script src="~/JavaScript/map-init.js"></script>
+    <script src="https://kit.fontawesome.com/740b3d7ee7.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</body>
+</html>
