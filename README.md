@@ -13,6 +13,8 @@
 - HomePage
 
 ![image](https://github.com/niravtank1199/Social-Media/assets/132243208/675d410c-a205-4f63-af2e-b4e5dbb9eef1)
+![image](https://github.com/niravtank1199/Social-Media/assets/132243208/d615cc8f-cfa6-4a41-b9f1-bfa30164b3e4)
+
 -  Personal Info
 
 ![Screenshot 2024-06-06 100509](https://github.com/niravtank1199/Social-Media/assets/132243208/53410426-acaa-48f7-aaa5-6a23b2da44aa)
