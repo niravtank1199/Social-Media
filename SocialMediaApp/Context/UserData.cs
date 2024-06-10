@@ -45,6 +45,7 @@ namespace SocialMediaApp.Context
         public string PhoneNumber { get; set; }
         public string Bio { get; set; }
         public Nullable<System.DateTime> BirthDate { get; set; }
+        public Nullable<int> IsValid { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CommentLike> CommentLikes { get; set; }

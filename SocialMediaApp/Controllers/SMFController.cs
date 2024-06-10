@@ -43,6 +43,6 @@ namespace SocialMediaApp.Controllers
         public ActionResult Confirmotp()
         {
             return View();
-        }
+        } 
     }
 }

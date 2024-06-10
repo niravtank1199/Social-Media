@@ -45,6 +45,10 @@ namespace SocialMediaApp.Controllers
                 {
                     while (reader.Read())
                     {
+                        if (reader["IsValid"] == DBNull.Value || Convert.ToInt32(reader["IsValid"]) == null)
+                        {
+                            return BadRequest("Invalid");
+                        }
                         User user = new User
                         {
                             UserId = Convert.ToInt32(reader["UserId"]),
@@ -92,7 +96,8 @@ namespace SocialMediaApp.Controllers
 
                     if (result > 0)
                     {
-                        return Ok();
+                        Sendotp(userData.Email);
+                        return Ok(userData);
                     }
                     else
                     {
@@ -108,7 +113,96 @@ namespace SocialMediaApp.Controllers
                     connection.Close();
                 }
             }
-        }   
+        }
+
+
+        [HttpGet]
+        [Route("CheckOtp")]
+        public IHttpActionResult CheckOtp(string otp, string email)
+        {
+
+            var user = db.PasswordResetTokens.FirstOrDefault(u => u.Email == email && u.Token == otp);
+            
+            if(user != null)
+            {
+                if ((DateTime.UtcNow - user.CreatedAt).TotalMinutes > 10)
+                {
+                    return BadRequest("Token has expired.");
+                }
+
+                var userData = db.UserDatas.FirstOrDefault(u => u.Email == email);
+
+                if (userData != null)
+                {
+                   
+                    userData.IsValid = 1;
+                    db.Entry(userData).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+
+                db.PasswordResetTokens.Remove(user);
+                db.SaveChanges();
+                return Ok();
+            }
+            return BadRequest();
+        }
+        
+
+        [HttpPost]
+        [Route("Sendotp")]
+        public IHttpActionResult Sendotp(string email)
+        {
+            string otp = GenerateOtp(6);
+
+            var resetToken = new PasswordResetToken
+            {
+                Email = email,
+                Token = otp,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            db.PasswordResetTokens.Add(resetToken);
+            db.SaveChanges();
+
+            SendOtpEmail(email, otp);
+            return Ok();
+        }
+
+        private string GenerateOtp(int length)
+        {
+            const string digits = "0123456789";
+            var random = new Random();
+            return new string(Enumerable.Repeat(digits, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        private void SendOtpEmail(string usermail, string token)
+        {
+            try
+            {
+                string resetLink = $"https://localhost:44321/SMF/Confirmotp?token={token}";
+
+                using (MailMessage mail = new MailMessage())
+                {
+                    mail.From = new MailAddress("demo94551@gmail.com");
+                    mail.To.Add(usermail);
+                    mail.Subject = "Forgot Password";
+                    mail.Body = $"Your OTP for resetting the password is: {token}";
+
+                    using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                    {
+                        smtp.Credentials = new System.Net.NetworkCredential("demo94551@gmail.com", "apmh lrvo fmrb knji");
+                        smtp.EnableSsl = true;
+                        smtp.Send(mail);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Failed to send mail: {e.Message}");
+            }
+        }
+        
 
 
         [HttpGet] //SP
@@ -1020,6 +1114,24 @@ namespace SocialMediaApp.Controllers
         }
 
         [HttpGet]
+        [Route("CheckToken")]
+        public IHttpActionResult CheckToken(string token)
+        {
+            var resetToken = db.PasswordResetTokens.SingleOrDefault(t => t.Token == token);
+            if (resetToken == null)
+            {
+                return BadRequest("Invalid token.");
+            }
+
+            if ((DateTime.UtcNow - resetToken.CreatedAt).TotalMinutes > 10)
+            {
+                return BadRequest("Token has expired.");
+            }
+
+            return Ok();
+        }
+
+        [HttpGet]
         [Route("resetpassword")]
         public IHttpActionResult ResetPassword(string token, string password)
         {
@@ -1047,23 +1159,9 @@ namespace SocialMediaApp.Controllers
             return Ok("Password has been reset successfully.");
         }
 
-        [HttpGet]
-        [Route("CheckToken")]
-        public IHttpActionResult CheckToken(string token)
-        {
-            var resetToken = db.PasswordResetTokens.SingleOrDefault(t => t.Token == token);
-            if (resetToken == null)
-            {
-                return BadRequest("Invalid token.");
-            }
 
-            if ((DateTime.UtcNow - resetToken.CreatedAt).TotalMinutes > 10)
-            {
-                return BadRequest("Token has expired.");
-            }
 
-            return Ok();
-        }
+
     }
 }
 
@@ -1502,58 +1600,3 @@ namespace SocialMediaApp.Controllers
 
 
 /// email otp
-//[HttpPost]
-//[Route("Sendotp")]
-//public IHttpActionResult Sendotp(string email)
-//{
-//    string otp = GenerateOtp(6);
-
-//    var resetToken = new PasswordResetToken
-//    {
-//        Email = email,
-//        Token = otp,
-//        CreatedAt = DateTime.UtcNow
-//    };
-
-//    db.PasswordResetTokens.Add(resetToken);
-//    db.SaveChanges();
-
-//    SendOtpEmail(email, otp);
-//    return Ok();
-//}
-
-//private string GenerateOtp(int length)
-//{
-//    const string digits = "0123456789";
-//    var random = new Random();
-//    return new string(Enumerable.Repeat(digits, length)
-//        .Select(s => s[random.Next(s.Length)]).ToArray());
-//}
-
-//private void SendOtpEmail(string usermail, string token)
-//{
-//    try
-//    {
-//        string resetLink = $"https://localhost:44321/SMF/Confirmotp?token={token}";
-
-//        using (MailMessage mail = new MailMessage())
-//        {
-//            mail.From = new MailAddress("demo94551@gmail.com");
-//            mail.To.Add(usermail);
-//            mail.Subject = "Forgot Password";
-//            mail.Body = $"Your OTP for resetting the password is: {token}";
-
-//            using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
-//            {
-//                smtp.Credentials = new System.Net.NetworkCredential("demo94551@gmail.com", "apmh lrvo fmrb knji");
-//                smtp.EnableSsl = true;
-//                smtp.Send(mail);
-//            }
-//        }
-//    }
-//    catch (Exception e)
-//    {
-//        Console.WriteLine($"Failed to send mail: {e.Message}");
-//    }
-//}
-

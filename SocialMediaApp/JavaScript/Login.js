@@ -92,7 +92,11 @@ window.handleLogin = function () {
         },
         error: function (xhr, status, error) {
             console.error("Login failed", error);
-            $("#loginError").text("Email or password invalid.");
+            if (xhr.status === 400) {               
+                window.location.href = '/SMF/confirmotp?email=' + email;
+            } else {
+                $("#loginError").text("Email or password invalid.");
+            }
         }
     });
 };
@@ -160,7 +164,8 @@ window.handleSignup = function () {
         data: formData,
         success: function (response) {           
             console.log("Signup successful", response);
-            window.location.href = "/SMF/Login";
+            console.log(response);
+            window.location.href = "/SMF/confirmotp?email=" + encodeURIComponent(response.Email);
         },
         error: function (error) {
             console.log("code:" + error.status);
@@ -200,4 +205,6 @@ function handleForgotPassword() {
         }
     });
 }
+
+
 

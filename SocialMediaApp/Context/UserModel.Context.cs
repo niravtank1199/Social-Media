@@ -84,7 +84,7 @@ namespace SocialMediaApp.Context
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllNotifications_Result>("GetAllNotifications");
         }
     
-        public virtual int AddUser(string email, string userPassword, string profilePhoto)
+        public virtual int AddUser(string email, string userPassword, string profilePhoto, string lastName, string firstName)
         {
             var emailParameter = email != null ?
                 new ObjectParameter("Email", email) :
@@ -98,7 +98,15 @@ namespace SocialMediaApp.Context
                 new ObjectParameter("ProfilePhoto", profilePhoto) :
                 new ObjectParameter("ProfilePhoto", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddUser", emailParameter, userPasswordParameter, profilePhotoParameter);
+            var lastNameParameter = lastName != null ?
+                new ObjectParameter("LastName", lastName) :
+                new ObjectParameter("LastName", typeof(string));
+    
+            var firstNameParameter = firstName != null ?
+                new ObjectParameter("FirstName", firstName) :
+                new ObjectParameter("FirstName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddUser", emailParameter, userPasswordParameter, profilePhotoParameter, lastNameParameter, firstNameParameter);
         }
     
         public virtual ObjectResult<GetUser_Result> GetUser(Nullable<int> id)

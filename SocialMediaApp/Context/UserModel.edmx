@@ -92,6 +92,7 @@
           <Property Name="PhoneNumber" Type="varchar" MaxLength="255" />
           <Property Name="Bio" Type="varchar" MaxLength="255" />
           <Property Name="BirthDate" Type="date" />
+          <Property Name="IsValid" Type="int" />
         </EntityType>
         <EntityType Name="UserFriends">
           <Key>
@@ -465,6 +466,8 @@
           <Parameter Name="Email" Type="varchar" Mode="In" />
           <Parameter Name="UserPassword" Type="varchar" Mode="In" />
           <Parameter Name="ProfilePhoto" Type="varchar" Mode="In" />
+          <Parameter Name="LastName" Type="varchar" Mode="In" />
+          <Parameter Name="FirstName" Type="varchar" Mode="In" />
         </Function>
         <Function Name="CheckIfViewed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="StoryId" Type="int" Mode="In" />
@@ -725,6 +728,7 @@
           <NavigationProperty Name="UserStories" Relationship="Self.FK__UserStori__UserI__15A53433" FromRole="UserData" ToRole="UserStories" />
           <NavigationProperty Name="UserStoryLikes" Relationship="Self.FK__UserStory__UserI__28B808A7" FromRole="UserData" ToRole="UserStoryLikes" />
           <NavigationProperty Name="StoryViews" Relationship="SocialMediaAppModel.FK__StoryView__UserI__2882FE7D" FromRole="UserData" ToRole="StoryView" />
+          <Property Name="IsValid" Type="Int32" />
         </EntityType>
         <EntityType Name="UserFriend">
           <Key>
@@ -1115,6 +1119,8 @@
             <Parameter Name="Email" Mode="In" Type="String" />
             <Parameter Name="UserPassword" Mode="In" Type="String" />
             <Parameter Name="ProfilePhoto" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetUser" ReturnType="Collection(SocialMediaAppModel.GetUser_Result)">
           <Parameter Name="id" Mode="In" Type="Int32" />
@@ -1147,7 +1153,7 @@
           <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="removearchievepost">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetAllStory_Result">
@@ -1352,6 +1358,7 @@
           <EntitySetMapping Name="UserDatas">
             <EntityTypeMapping TypeName="SocialMediaAppModel.UserData">
               <MappingFragment StoreEntitySet="UserData">
+                <ScalarProperty Name="IsValid" ColumnName="IsValid" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
