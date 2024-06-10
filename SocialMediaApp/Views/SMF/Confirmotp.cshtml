@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="~/JavaScript/Login.js"></script>
+    <script src="~/JavaScript/Confirmotp.js"></script>
 </head>
 <body>
     <div class="se-pre-con"></div>
@@ -34,6 +34,7 @@
                                     <label class="control-label" for="otp">OTP</label><i class="mtrl-select"></i>
                                 </div>
                                 <span id="otpError"></span>
+                                <a href="#" title="" id="Resend">Resend Otp</a>
                                 <div class="submit-btns">
                                     <button class="mtr-btn" type="button" onclick="handleOtpSubmit()"><span>Verify OTP</span></button>
                                     <button class="mtr-btn" type="button" onclick="location.href='@Url.Action("login", "SMF")'"><span>Login</span></button>
@@ -45,38 +46,8 @@
             </div>
         </div>
     </div>
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="~/JavaScript/main.min.js"></script>
     <script src="~/JavaScript/script.js"></script>
-    <script>
-        function handleOtpSubmit() {
-            var otp = document.getElementById("otp").value.trim();
-            var email = document.getElementById("forgotPasswordEmail").value.trim();
-
-            if (!otp) {
-                $("#otpError").text("Please enter the OTP.");
-                return;
-            }
-
-            const formData = {
-                email: email,
-                otp: otp
-            };
-
-            $.ajax({
-                url: '/api/WebApi/CheckToken',
-                type: 'POST',
-                data: formData,
-                success: function (response) {
-                    console.log("OTP verified successfully", response);
-                    window.location.href = "/SMF/Login";
-                },
-                error: function (error) {
-                    console.error("OTP verification failed", error);
-                    $("#otpError").text("Invalid OTP.");
-                }
-            });
-        }
-    </script>
+    
 </body>
 </html>
